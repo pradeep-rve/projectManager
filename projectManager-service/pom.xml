@@ -43,7 +43,7 @@
 			<version>1.2.0</version>
 		</dependency>
 		<dependency>
-			<groupId>com.fsd.casestudy</groupId>
+			<groupId>com.fsd</groupId>
 			<artifactId>project-manager-ui</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<scope>runtime</scope>
