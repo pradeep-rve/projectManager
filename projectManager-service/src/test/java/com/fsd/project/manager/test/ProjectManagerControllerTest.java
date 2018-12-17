@@ -1,4 +1,4 @@
-package com.fsd.project.controller.test;
+package com.fsd.project.manager.test;
 
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -11,16 +11,21 @@ import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fsd.project.manager.bo.Project;
-import com.fsd.project.service.ProjectManagerService;
+import com.fsd.project.manager.controller.ProjectManagerController;
+import com.fsd.project.manager.service.ProjectManagerService;
 
 @RunWith(SpringRunner.class)
+@WebMvcTest(ProjectManagerController.class)
 public class ProjectManagerControllerTest {
 	
 	@Autowired

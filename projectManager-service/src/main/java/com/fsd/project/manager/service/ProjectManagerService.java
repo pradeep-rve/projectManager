@@ -1,4 +1,4 @@
-package com.fsd.project.service;
+package com.fsd.project.manager.service;
 
 import java.util.List;
 

@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.fsd.project.manager.bo.Project;
-import com.fsd.project.service.ProjectManagerService;
+import com.fsd.project.manager.service.ProjectManagerService;
 
 @Service
 public class ProjectManagerServiceImpl implements ProjectManagerService{
