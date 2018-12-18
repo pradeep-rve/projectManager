@@ -19,6 +19,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fsd.project.manager.bo.Project;
+import com.fsd.project.manager.bo.Task;
 import com.fsd.project.manager.bo.User;
 import com.fsd.project.manager.controller.ProjectManagerController;
 import com.fsd.project.manager.service.ProjectManagerService;
@@ -51,6 +52,16 @@ public class ProjectManagerControllerTest {
 		mvc.perform(get("/getuserdetails").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
 	}
 	
+	@Test
+	public void testGetTask() throws Exception{
+		Task task= buildTaskList();
+		List<Task> tasks = new ArrayList<>();
+		given(projectManagerServiceImpl.getTasksList()).willReturn(tasks);
+		mvc.perform(get("/gettasksdetails").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
+
+		
+	}
+	
 	private Project buildProjectList() throws Exception {
 		ClassLoader classLoader = getClass().getClassLoader();
 		File file = new File(classLoader.getResource("getproject.json").getFile());
@@ -65,6 +76,14 @@ public class ProjectManagerControllerTest {
 		ObjectMapper mapper = new ObjectMapper();
 		User userInfo = mapper.readValue(file, User.class);
 		return userInfo;
+	}
+	
+	private Task buildTaskList() throws Exception {
+		ClassLoader classLoader = getClass().getClassLoader();
+		File file = new File(classLoader.getResource("gettask.json").getFile());
+		ObjectMapper mapper = new ObjectMapper();
+		Task task = mapper.readValue(file, Task.class);
+		return task;
 	}
 
 }

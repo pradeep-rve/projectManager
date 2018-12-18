@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fsd.project.manager.bo.Project;
+import com.fsd.project.manager.bo.Task;
 import com.fsd.project.manager.bo.User;
 import com.fsd.project.manager.service.ProjectManagerService;
 
@@ -24,5 +25,10 @@ public class ProjectManagerController {
 	@GetMapping(value = "/getuserdetails", headers = "Accept=application/json")
 	public List<User> getUsersList(){
 		return projectManagerService.getUsersList();
+	}
+	
+	@GetMapping(value = "/gettasksdetails", headers = "Accept=application/json")
+	public List<Task> getTasksList(){
+		return projectManagerService.getTasksList();
 	}
 }
