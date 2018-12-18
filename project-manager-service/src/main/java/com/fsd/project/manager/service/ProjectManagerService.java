@@ -16,6 +16,8 @@ public interface ProjectManagerService {
 	List<Task> getTasksList(int tid);
 	
 	List<ParentTask> getParentTasksList(int pid);
+	
+	boolean addUser(User user);
 
 
 }

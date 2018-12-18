@@ -2,12 +2,10 @@ package com.fsd.project.manager.test;
 
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.io.File;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -73,6 +71,24 @@ public class ProjectManagerControllerTest {
 		given(projectManagerServiceImpl.getParentTasksList(1)).willReturn(parentTasks);
 		mvc.perform(get("/getparenttasksdetails/{pid}",1).contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
 	}
+	
+	@Test
+	public void testGetParentTaskBadRequest() throws Exception {
+		mvc.perform(get("/getparenttasksdetails/f").accept(MediaType.APPLICATION_JSON))
+				.andExpect(status().isBadRequest());
+	}
+	
+	@Test
+	public void testAddUser() throws Exception{
+		User user = buildUserList();
+		user.setUserId(0);
+		given(projectManagerServiceImpl.addUser(user)).willReturn(true);
+		ObjectMapper mapper = new ObjectMapper();
+		mvc.perform(post("/addorupdateuser").contentType(MediaType.APPLICATION_JSON)
+				.content(mapper.writeValueAsString(user)).accept(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk());
+	}
+
 	
 	private Project buildProjectList() throws Exception {
 		ClassLoader classLoader = getClass().getClassLoader();

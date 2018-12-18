@@ -36,6 +36,12 @@ public class ProjectManagerServiceImpl implements ProjectManagerService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public boolean addUser(User user) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 
 }
