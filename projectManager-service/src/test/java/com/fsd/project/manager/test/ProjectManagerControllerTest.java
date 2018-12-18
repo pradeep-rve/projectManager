@@ -5,6 +5,9 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.io.File;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,6 +59,7 @@ public class ProjectManagerControllerTest {
 	public void testGetTask() throws Exception{
 		Task task= buildTaskList();
 		List<Task> tasks = new ArrayList<>();
+		tasks.add(task);
 		given(projectManagerServiceImpl.getTasksList()).willReturn(tasks);
 		mvc.perform(get("/gettasksdetails").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
 
@@ -64,7 +68,7 @@ public class ProjectManagerControllerTest {
 	
 	private Project buildProjectList() throws Exception {
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("getproject.json").getFile());
+		File file = new File(classLoader.getResource("getproject.json").toURI());
 		ObjectMapper mapper = new ObjectMapper();
 		Project project = mapper.readValue(file,Project.class);
 		return project;
@@ -72,7 +76,7 @@ public class ProjectManagerControllerTest {
 	
 	private User buildUserList() throws Exception {
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("getuser.json").getFile());
+		File file = new File(classLoader.getResource("getuser.json").toURI());
 		ObjectMapper mapper = new ObjectMapper();
 		User userInfo = mapper.readValue(file, User.class);
 		return userInfo;
@@ -80,10 +84,11 @@ public class ProjectManagerControllerTest {
 	
 	private Task buildTaskList() throws Exception {
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("gettask.json").getFile());
+		File file = new File(classLoader.getResource("gettask.json").toURI());
 		ObjectMapper mapper = new ObjectMapper();
 		Task task = mapper.readValue(file, Task.class);
 		return task;
 	}
+	
 
 }
