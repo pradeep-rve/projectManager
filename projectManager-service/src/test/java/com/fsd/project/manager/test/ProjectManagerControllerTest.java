@@ -12,15 +12,14 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fsd.project.manager.bo.Project;
+import com.fsd.project.manager.bo.User;
 import com.fsd.project.manager.controller.ProjectManagerController;
 import com.fsd.project.manager.service.ProjectManagerService;
 
@@ -36,19 +35,27 @@ public class ProjectManagerControllerTest {
 	
 	@Test
 	public void testGetProject() throws Exception {
-		Project project = buildProjectVO();
+		Project project = buildProjectList();
 		List<Project> projects = new ArrayList<>();
 		given(projectManagerServiceImpl.getProjectList()).willReturn(projects);
 		projects.add(project);
-		mvc.perform(get("getProject").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
+		mvc.perform(get("/getProjectDetails").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
 	}
 	
-	private Project buildProjectVO() throws Exception {
+	private Project buildProjectList() throws Exception {
 		ClassLoader classLoader = getClass().getClassLoader();
 		File file = new File(classLoader.getResource("getproject.json").getFile());
 		ObjectMapper mapper = new ObjectMapper();
 		Project project = mapper.readValue(file,Project.class);
 		return project;
+	}
+	
+	private User buildUserList() throws Exception {
+		ClassLoader classLoader = getClass().getClassLoader();
+		File file = new File(classLoader.getResource("getuser.json").getFile());
+		ObjectMapper mapper = new ObjectMapper();
+		User userInfo = mapper.readValue(file, User.class);
+		return userInfo;
 	}
 
 }
