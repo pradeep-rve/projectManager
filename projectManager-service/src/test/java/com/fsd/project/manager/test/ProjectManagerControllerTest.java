@@ -39,7 +39,16 @@ public class ProjectManagerControllerTest {
 		List<Project> projects = new ArrayList<>();
 		given(projectManagerServiceImpl.getProjectList()).willReturn(projects);
 		projects.add(project);
-		mvc.perform(get("/getProjectDetails").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
+		mvc.perform(get("/getprojectdetails").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
+	}
+	
+	@Test
+	public void testGetUser() throws Exception {
+		User user = buildUserList();
+		List<User> users = new ArrayList<>();
+		given(projectManagerServiceImpl.getUsersList()).willReturn(users);
+		users.add(user);
+		mvc.perform(get("/getuserdetails").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
 	}
 	
 	private Project buildProjectList() throws Exception {
