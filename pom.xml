@@ -33,6 +33,6 @@
 	</dependencies>
 	<modules>
 <!-- 		<module>projectManager-ui</module>
- -->		<module>projectManager-service</module>
+ -->		<module>project-manager-service</module>
 	</modules>
 </project>
