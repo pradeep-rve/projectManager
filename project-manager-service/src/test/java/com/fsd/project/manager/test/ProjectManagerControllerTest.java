@@ -21,6 +21,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fsd.project.manager.bo.ParentTask;
 import com.fsd.project.manager.bo.Project;
 import com.fsd.project.manager.bo.Task;
 import com.fsd.project.manager.bo.User;
@@ -60,10 +61,17 @@ public class ProjectManagerControllerTest {
 		Task task= buildTaskList();
 		List<Task> tasks = new ArrayList<>();
 		tasks.add(task);
-		given(projectManagerServiceImpl.getTasksList()).willReturn(tasks);
-		mvc.perform(get("/gettasksdetails").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
-
-		
+		given(projectManagerServiceImpl.getTasksList(1)).willReturn(tasks);
+		mvc.perform(get("/gettasksdetails/{tid}",1).contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
+	}
+	
+	@Test
+	public void testGetParentTask() throws Exception{
+		ParentTask parentTask= buildParentTask();
+		List<ParentTask> parentTasks = new ArrayList<>();
+		parentTasks.add(parentTask);
+		given(projectManagerServiceImpl.getParentTasksList(1)).willReturn(parentTasks);
+		mvc.perform(get("/getparenttasksdetails/{pid}",1).contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
 	}
 	
 	private Project buildProjectList() throws Exception {
@@ -89,6 +97,15 @@ public class ProjectManagerControllerTest {
 		Task task = mapper.readValue(file, Task.class);
 		return task;
 	}
+	
+	private ParentTask buildParentTask() throws Exception {
+		ClassLoader classLoader = getClass().getClassLoader();
+		File file = new File(classLoader.getResource("getparenttask.json").toURI());
+		ObjectMapper mapper = new ObjectMapper();
+		ParentTask parentTask = mapper.readValue(file, ParentTask.class);
+		return parentTask;
+	}
+	
 	
 
 }
