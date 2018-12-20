@@ -32,7 +32,7 @@
 		</dependency>
 	</dependencies>
 	<modules>
-<!-- 		<module>projectManager-ui</module>
- -->		<module>project-manager-service</module>
+ 		<module>project-manager-ui</module>
+ 		<module>project-manager-service</module>
 	</modules>
 </project>
