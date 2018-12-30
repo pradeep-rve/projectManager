@@ -27,7 +27,7 @@ import javax.persistence.TemporalType;
 public class Project {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "projectid")
 	private int projectId;
 	@Column(name = "project")

@@ -22,7 +22,7 @@ public interface TaskRepository extends JpaRepository<Task, Integer> {
 
 	List<Task> findAll();
 
-	@Query(value = "SELECT t FROM Task t WHERE t.project.projectid = :projectId")
+	@Query(value = "SELECT t FROM Task t WHERE t.project.projectId = :projectId")
 	List<Task> getTaskDetails(@Param("projectId") int projectId);
 
 	@Modifying

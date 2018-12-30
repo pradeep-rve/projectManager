@@ -24,7 +24,7 @@ public interface ProjectRepository extends JpaRepository<Project, Integer> {
 
 	Project findByProjectId(int projectId);
 
-	@Query(value = "SELECT pj FROM Project pj WHERE pj.user.userid = :userId")
+	@Query(value = "SELECT pj FROM Project pj WHERE pj.user.userId = :userId")
 	List<Project> getProjectsForUser(@Param("userId") int userId);
 
 	@Modifying

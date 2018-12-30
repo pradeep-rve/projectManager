@@ -22,7 +22,7 @@ public interface ParentTaskRespository extends JpaRepository<ParentTask, Integer
 
 	List<ParentTask> findAll();
 
-	@Query(value = "SELECT pt FROM ParentTask pt WHERE pt.project.projectid = :projectId")
+	@Query(value = "SELECT pt FROM ParentTask pt WHERE pt.project.projectId = :projectId")
 	List<ParentTask> getParentTasks(@Param("projectId") int projectId);
 
 	ParentTask findByParentId(int parentId);

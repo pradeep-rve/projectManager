@@ -26,7 +26,7 @@ import javax.persistence.TemporalType;
 public class Task {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "taskid")
 	private int taskId;
 	@OneToOne
