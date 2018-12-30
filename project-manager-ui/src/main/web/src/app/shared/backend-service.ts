@@ -10,44 +10,44 @@ export class BackendService {
   constructor(private httpClient: HttpClient, private router: Router) { }
 
   getTasks(projectId) {
-    return this.httpClient.get(Config.API + '/project-manager/getTaskInfo/' + projectId);
+    return this.httpClient.get(Config.API + '/pm/getTask/' + projectId);
   }
 
   getParentTasks(projectId) {
-    return this.httpClient.get(Config.API + '/project-manager/getParentTaskInfo/' + projectId);
+    return this.httpClient.get(Config.API + '/pm/getParentTask/' + projectId);
   }
 
   getUsers(inputParam) {
-    return this.httpClient.get(Config.API + '/project-manager/getUserInfo', inputParam);
+    return this.httpClient.get(Config.API + '/pm/getUser', inputParam);
   }
 
   updateUser(inputParam) {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    return this.httpClient.post(Config.API + '/project-manager/updateUser',
+    return this.httpClient.post(Config.API + '/pm/updateUser',
       inputParam,
       { headers: headers });
   }
 
   deleteUser(userId) {
-    return this.httpClient.delete(Config.API + '/project-manager/deleteUser/' + userId);
+    return this.httpClient.delete(Config.API + '/pm/deleteUser/' + userId);
   }
 
   getProjects(inputParam) {
-    return this.httpClient.get(Config.API + '/project-manager/getProjectInfo', inputParam);
+    return this.httpClient.get(Config.API + '/pm/getProject', inputParam);
 
   }
 
   deleteProject(projectId) {
-    return this.httpClient.delete(Config.API + '/project-manager/deleteProject/' + projectId);
+    return this.httpClient.delete(Config.API + '/pm/deleteProject/' + projectId);
   }
 
   updateProject(inputParam) {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    return this.httpClient.post(Config.API + '/project-manager/updateProject',
+    return this.httpClient.post(Config.API + '/pm/updateProject',
       inputParam,
       { headers: headers });
   }
@@ -56,7 +56,7 @@ export class BackendService {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    return this.httpClient.post(Config.API + '/project-manager/updateTask',
+    return this.httpClient.post(Config.API + '/pm/updateTask',
       inputParam,
       { headers: headers });
   }
