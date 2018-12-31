@@ -67,7 +67,7 @@ public class ProjectManagerServiceImplTest {
 
 	@Test
 	public void getProject_WithProjects()
-			throws JsonParseException, JsonMappingException, IOException, TaskException {
+			throws JsonParseException, JsonMappingException, IOException, TaskException, URISyntaxException {
 		TypeReference<List<Project>> mapObj = new TypeReference<List<Project>>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
@@ -83,7 +83,7 @@ public class ProjectManagerServiceImplTest {
 
 	@Test
 	public void getProject_WithEmptyProjects()
-			throws JsonParseException, JsonMappingException, IOException, TaskException {
+			throws JsonParseException, JsonMappingException, IOException, TaskException, URISyntaxException {
 		TypeReference<List<Project>> mapObj = new TypeReference<List<Project>>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
@@ -98,7 +98,7 @@ public class ProjectManagerServiceImplTest {
 
 	@Test
 	public void getProject_WithException()
-			throws JsonParseException, JsonMappingException, IOException, TaskException {
+			throws JsonParseException, JsonMappingException, IOException, TaskException, URISyntaxException {
 		TypeReference<TaskException> mapObj = new TypeReference<TaskException>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
@@ -113,7 +113,7 @@ public class ProjectManagerServiceImplTest {
 	}
 
 	@Test
-	public void getUser_WithUsers() throws JsonParseException, JsonMappingException, IOException, TaskException {
+	public void getUser_WithUsers() throws JsonParseException, JsonMappingException, IOException, TaskException, URISyntaxException {
 		TypeReference<List<User>> mapObj = new TypeReference<List<User>>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
@@ -129,7 +129,7 @@ public class ProjectManagerServiceImplTest {
 
 	@Test
 	public void getUser_WithException()
-			throws JsonParseException, JsonMappingException, IOException, TaskException {
+			throws JsonParseException, JsonMappingException, IOException, TaskException, URISyntaxException {
 		TypeReference<TaskException> mapObj = new TypeReference<TaskException>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
@@ -144,7 +144,7 @@ public class ProjectManagerServiceImplTest {
 	}
 
 	@Test
-	public void getTask_WithAllTasks() throws JsonParseException, JsonMappingException, IOException, TaskException {
+	public void getTask_WithAllTasks() throws JsonParseException, JsonMappingException, IOException, TaskException, URISyntaxException {
 		TypeReference<List<Task>> mapObj = new TypeReference<List<Task>>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
@@ -160,7 +160,7 @@ public class ProjectManagerServiceImplTest {
 
 	@Test
 	public void getTask_WithProjectId()
-			throws JsonParseException, JsonMappingException, IOException, TaskException {
+			throws JsonParseException, JsonMappingException, IOException, TaskException, URISyntaxException {
 		TypeReference<List<Task>> mapObj = new TypeReference<List<Task>>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
@@ -176,7 +176,7 @@ public class ProjectManagerServiceImplTest {
 
 	@Test
 	public void getTask_WithException()
-			throws JsonParseException, JsonMappingException, IOException, TaskException {
+			throws JsonParseException, JsonMappingException, IOException, TaskException, URISyntaxException {
 		TypeReference<TaskException> mapObj = new TypeReference<TaskException>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
@@ -192,7 +192,7 @@ public class ProjectManagerServiceImplTest {
 
 	@Test
 	public void getParentTask_WithProjectId()
-			throws JsonParseException, JsonMappingException, IOException, TaskException {
+			throws JsonParseException, JsonMappingException, IOException, TaskException, URISyntaxException {
 		TypeReference<List<ParentTask>> mapObj = new TypeReference<List<ParentTask>>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
@@ -208,7 +208,7 @@ public class ProjectManagerServiceImplTest {
 
 	@Test
 	public void getParentTask_WithException()
-			throws JsonParseException, JsonMappingException, IOException, TaskException {
+			throws JsonParseException, JsonMappingException, IOException, TaskException, URISyntaxException {
 		TypeReference<TaskException> mapObj = new TypeReference<TaskException>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
@@ -230,7 +230,7 @@ public class ProjectManagerServiceImplTest {
 	}
 
 	@Test
-	public void deleteUser_WithException() throws JsonParseException, JsonMappingException, IOException, TaskException {
+	public void deleteUser_WithException() throws JsonParseException, JsonMappingException, IOException, TaskException, URISyntaxException {
 		TypeReference<TaskException> mapObj = new TypeReference<TaskException>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
