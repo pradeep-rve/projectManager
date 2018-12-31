@@ -11,6 +11,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -220,81 +221,81 @@ public class ProjectManagerControllerTest {
 
 	}
 
-	private ProjectInfo getProject() throws JsonParseException, JsonMappingException, IOException {
+	private ProjectInfo getProject() throws JsonParseException, JsonMappingException, IOException, URISyntaxException {
 		TypeReference<ProjectInfo> mapObj = new TypeReference<ProjectInfo>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("projectinfo.json").getFile());
+		File file = new File(classLoader.getResource("projectinfo.json").toURI());
 		ObjectMapper mapper = new ObjectMapper();
 		ProjectInfo projectInfo = mapper.readValue(file, mapObj);
 		return projectInfo;
 	}
 
-	private ProjectInfo getProject_Add() throws JsonParseException, JsonMappingException, IOException {
+	private ProjectInfo getProject_Add() throws JsonParseException, JsonMappingException, IOException, URISyntaxException {
 		TypeReference<ProjectInfo> mapObj = new TypeReference<ProjectInfo>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("projectinfo_add.json").getFile());
+		File file = new File(classLoader.getResource("projectinfo_add.json").toURI());
 		ObjectMapper mapper = new ObjectMapper();
 		ProjectInfo projectInfo = mapper.readValue(file, mapObj);
 		return projectInfo;
 	}
 
-	private UserInfo getUser() throws JsonParseException, JsonMappingException, IOException {
+	private UserInfo getUser() throws JsonParseException, JsonMappingException, IOException, URISyntaxException {
 		TypeReference<UserInfo> mapObj = new TypeReference<UserInfo>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("user.json").getFile());
+		File file = new File(classLoader.getResource("user.json").toURI());
 		ObjectMapper mapper = new ObjectMapper();
 		UserInfo userInfo = mapper.readValue(file, mapObj);
 		return userInfo;
 	}
 
-	private UserInfo getUser_Add() throws JsonParseException, JsonMappingException, IOException {
+	private UserInfo getUser_Add() throws JsonParseException, JsonMappingException, IOException, URISyntaxException {
 		TypeReference<UserInfo> mapObj = new TypeReference<UserInfo>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("user_add.json").getFile());
+		File file = new File(classLoader.getResource("user_add.json").toURI());
 		ObjectMapper mapper = new ObjectMapper();
 		UserInfo userInfo = mapper.readValue(file, mapObj);
 		return userInfo;
 	}
 
-	private TaskInfo getTask() throws JsonParseException, JsonMappingException, IOException {
+	private TaskInfo getTask() throws JsonParseException, JsonMappingException, IOException, URISyntaxException {
 		TypeReference<TaskInfo> mapObj = new TypeReference<TaskInfo>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("taskinfo.json").getFile());
+		File file = new File(classLoader.getResource("taskinfo.json").toURI());
 		ObjectMapper mapper = new ObjectMapper();
 		TaskInfo taskInfo = mapper.readValue(file, mapObj);
 		return taskInfo;
 	}
 
-	private TaskInfo getTask_Add() throws JsonParseException, JsonMappingException, IOException {
+	private TaskInfo getTask_Add() throws JsonParseException, JsonMappingException, IOException, URISyntaxException {
 		TypeReference<TaskInfo> mapObj = new TypeReference<TaskInfo>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("taskinfo_add.json").getFile());
+		File file = new File(classLoader.getResource("taskinfo_add.json").toURI());
 		ObjectMapper mapper = new ObjectMapper();
 		TaskInfo taskInfo = mapper.readValue(file, mapObj);
 		return taskInfo;
 	}
 
-	private TaskInfo getTask_Suspend() throws JsonParseException, JsonMappingException, IOException {
+	private TaskInfo getTask_Suspend() throws JsonParseException, JsonMappingException, IOException, URISyntaxException {
 		TypeReference<TaskInfo> mapObj = new TypeReference<TaskInfo>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("taskinfo_suspend.json").getFile());
+		File file = new File(classLoader.getResource("taskinfo_suspend.json").toURI());
 		ObjectMapper mapper = new ObjectMapper();
 		TaskInfo taskInfo = mapper.readValue(file, mapObj);
 		return taskInfo;
 	}
 
-	private ParentTaskInfo getParentTask() throws JsonParseException, JsonMappingException, IOException {
+	private ParentTaskInfo getParentTask() throws JsonParseException, JsonMappingException, IOException, URISyntaxException {
 		TypeReference<ParentTaskInfo> mapObj = new TypeReference<ParentTaskInfo>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("parenttask.json").getFile());
+		File file = new File(classLoader.getResource("parenttask.json").toURI());
 		ObjectMapper mapper = new ObjectMapper();
 		ParentTaskInfo parentTaskInfo = mapper.readValue(file, mapObj);
 		return parentTaskInfo;
