@@ -7,6 +7,7 @@ import static org.mockito.Mockito.when;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -158,11 +159,11 @@ public class ProjectManagerDAOImplTest {
 
 	@Test
 	public void deleteProjectForUser_Valid()
-			throws TaskException, JsonParseException, JsonMappingException, IOException {
+			throws TaskException, JsonParseException, JsonMappingException, IOException, URISyntaxException {
 		TypeReference<List<Project>> mapObj = new TypeReference<List<Project>>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("projectlist.json").getFile());
+		File file = new File(classLoader.getResource("projectlist.json").toURI());
 		ObjectMapper mapper = new ObjectMapper();
 		List<Project> projects = mapper.readValue(file, mapObj);
 
@@ -175,11 +176,11 @@ public class ProjectManagerDAOImplTest {
 	}
 
 	@Test
-	public void deleteUser_Valid() throws JsonParseException, JsonMappingException, IOException {
+	public void deleteUser_Valid() throws JsonParseException, JsonMappingException, IOException, URISyntaxException {
 		TypeReference<List<Project>> mapObj = new TypeReference<List<Project>>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("projectlist.json").getFile());
+		File file = new File(classLoader.getResource("projectlist.json").toURI());
 		ObjectMapper mapper = new ObjectMapper();
 		List<Project> projects = mapper.readValue(file, mapObj);
 

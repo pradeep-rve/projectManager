@@ -8,6 +8,7 @@ import static org.mockito.BDDMockito.given;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.List;
 
 import org.junit.Rule;
@@ -70,7 +71,7 @@ public class ProjectManagerServiceImplTest {
 		TypeReference<List<Project>> mapObj = new TypeReference<List<Project>>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("projectlist.json").getFile());
+		File file = new File(classLoader.getResource("projectlist.json").toURI());
 		ObjectMapper mapper = new ObjectMapper();
 		List<Project> projects = mapper.readValue(file, mapObj);
 
@@ -86,7 +87,7 @@ public class ProjectManagerServiceImplTest {
 		TypeReference<List<Project>> mapObj = new TypeReference<List<Project>>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("projectlist_empty.json").getFile());
+		File file = new File(classLoader.getResource("projectlist_empty.json").toURI());
 		ObjectMapper mapper = new ObjectMapper();
 		List<Project> projects = mapper.readValue(file, mapObj);
 
@@ -101,7 +102,7 @@ public class ProjectManagerServiceImplTest {
 		TypeReference<TaskException> mapObj = new TypeReference<TaskException>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("exception.json").getFile());
+		File file = new File(classLoader.getResource("exception.json").toURI());
 		ObjectMapper mapper = new ObjectMapper();
 		TaskException taskException = mapper.readValue(file, mapObj);
 
@@ -116,7 +117,7 @@ public class ProjectManagerServiceImplTest {
 		TypeReference<List<User>> mapObj = new TypeReference<List<User>>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("userlist.json").getFile());
+		File file = new File(classLoader.getResource("userlist.json").toURI());
 		ObjectMapper mapper = new ObjectMapper();
 		List<User> users = mapper.readValue(file, mapObj);
 
@@ -132,7 +133,7 @@ public class ProjectManagerServiceImplTest {
 		TypeReference<TaskException> mapObj = new TypeReference<TaskException>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("exception.json").getFile());
+		File file = new File(classLoader.getResource("exception.json").toURI());
 		ObjectMapper mapper = new ObjectMapper();
 		TaskException taskException = mapper.readValue(file, mapObj);
 
@@ -147,7 +148,7 @@ public class ProjectManagerServiceImplTest {
 		TypeReference<List<Task>> mapObj = new TypeReference<List<Task>>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("tasklist.json").getFile());
+		File file = new File(classLoader.getResource("tasklist.json").toURI());
 		ObjectMapper mapper = new ObjectMapper();
 		List<Task> tasks = mapper.readValue(file, mapObj);
 
@@ -163,7 +164,7 @@ public class ProjectManagerServiceImplTest {
 		TypeReference<List<Task>> mapObj = new TypeReference<List<Task>>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("tasklist.json").getFile());
+		File file = new File(classLoader.getResource("tasklist.json").toURI());
 		ObjectMapper mapper = new ObjectMapper();
 		List<Task> tasks = mapper.readValue(file, mapObj);
 
@@ -179,7 +180,7 @@ public class ProjectManagerServiceImplTest {
 		TypeReference<TaskException> mapObj = new TypeReference<TaskException>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("exception.json").getFile());
+		File file = new File(classLoader.getResource("exception.json").toURI());
 		ObjectMapper mapper = new ObjectMapper();
 		TaskException taskException = mapper.readValue(file, mapObj);
 
@@ -195,7 +196,7 @@ public class ProjectManagerServiceImplTest {
 		TypeReference<List<ParentTask>> mapObj = new TypeReference<List<ParentTask>>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("parenttasklist.json").getFile());
+		File file = new File(classLoader.getResource("parenttasklist.json").toURI());
 		ObjectMapper mapper = new ObjectMapper();
 		List<ParentTask> tasks = mapper.readValue(file, mapObj);
 
@@ -211,7 +212,7 @@ public class ProjectManagerServiceImplTest {
 		TypeReference<TaskException> mapObj = new TypeReference<TaskException>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("exception.json").getFile());
+		File file = new File(classLoader.getResource("exception.json").toURI());
 		ObjectMapper mapper = new ObjectMapper();
 		TaskException taskException = mapper.readValue(file, mapObj);
 
@@ -233,7 +234,7 @@ public class ProjectManagerServiceImplTest {
 		TypeReference<TaskException> mapObj = new TypeReference<TaskException>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("exception.json").getFile());
+		File file = new File(classLoader.getResource("exception.json").toURI());
 		ObjectMapper mapper = new ObjectMapper();
 		TaskException taskException = mapper.readValue(file, mapObj);
 
@@ -252,11 +253,11 @@ public class ProjectManagerServiceImplTest {
 
 	@Test
 	public void deleteProject_WithException()
-			throws JsonParseException, JsonMappingException, IOException, TaskException {
+			throws JsonParseException, JsonMappingException, IOException, TaskException, URISyntaxException {
 		TypeReference<TaskException> mapObj = new TypeReference<TaskException>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("exception.json").getFile());
+		File file = new File(classLoader.getResource("exception.json").toURI());
 		ObjectMapper mapper = new ObjectMapper();
 		TaskException taskException = mapper.readValue(file, mapObj);
 
@@ -267,11 +268,11 @@ public class ProjectManagerServiceImplTest {
 	}
 
 	@Test
-	public void updateUserInfo_Valid() throws JsonParseException, JsonMappingException, IOException, TaskException {
+	public void updateUserInfo_Valid() throws JsonParseException, JsonMappingException, IOException, TaskException, URISyntaxException {
 		TypeReference<List<User>> mapObj = new TypeReference<List<User>>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("userlist.json").getFile());
+		File file = new File(classLoader.getResource("userlist.json").toURI());
 		ObjectMapper mapper = new ObjectMapper();
 		List<User> users = mapper.readValue(file, mapObj);
 		given(projectManagerDAOImpl.updateUser(users.get(0))).willReturn(users.get(0));
@@ -280,11 +281,11 @@ public class ProjectManagerServiceImplTest {
 	}
 
 	@Test
-	public void updateProjectInfo_Valid() throws JsonParseException, JsonMappingException, IOException, TaskException {
+	public void updateProjectInfo_Valid() throws JsonParseException, JsonMappingException, IOException, TaskException, URISyntaxException {
 		TypeReference<List<Project>> mapObj = new TypeReference<List<Project>>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("projectlist.json").getFile());
+		File file = new File(classLoader.getResource("projectlist.json").toURI());
 		ObjectMapper mapper = new ObjectMapper();
 		List<Project> projects = mapper.readValue(file, mapObj);
 		given(projectManagerDAOImpl.getUser(1)).willReturn(projects.get(0).getUser());
@@ -294,11 +295,11 @@ public class ProjectManagerServiceImplTest {
 
 	@Test
 	public void updateProjectInfo_WithException()
-			throws JsonParseException, JsonMappingException, IOException, TaskException {
+			throws JsonParseException, JsonMappingException, IOException, TaskException, URISyntaxException {
 		TypeReference<TaskException> mapObj = new TypeReference<TaskException>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("exception.json").getFile());
+		File file = new File(classLoader.getResource("exception.json").toURI());
 		ObjectMapper mapper = new ObjectMapper();
 		TaskException taskException = mapper.readValue(file, mapObj);
 		given(projectManagerDAOImpl.getUser(1)).willThrow(taskException);
@@ -309,11 +310,11 @@ public class ProjectManagerServiceImplTest {
 	}
 
 	@Test
-	public void updateTaskInfo_Valid() throws JsonParseException, JsonMappingException, IOException, TaskException {
+	public void updateTaskInfo_Valid() throws JsonParseException, JsonMappingException, IOException, TaskException, URISyntaxException {
 		TypeReference<List<Task>> mapObj = new TypeReference<List<Task>>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("tasklist.json").getFile());
+		File file = new File(classLoader.getResource("tasklist.json").toURI());
 		ObjectMapper mapper = new ObjectMapper();
 		List<Task> tasks = mapper.readValue(file, mapObj);
 		Task task = tasks.get(0);
@@ -325,11 +326,11 @@ public class ProjectManagerServiceImplTest {
 
 	@Test
 	public void updateTaskInfo_WithException()
-			throws JsonParseException, JsonMappingException, IOException, TaskException {
+			throws JsonParseException, JsonMappingException, IOException, TaskException, URISyntaxException {
 		TypeReference<TaskException> mapObj = new TypeReference<TaskException>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("exception.json").getFile());
+		File file = new File(classLoader.getResource("exception.json").toURI());
 		ObjectMapper mapper = new ObjectMapper();
 		TaskException taskException = mapper.readValue(file, mapObj);
 		given(projectManagerDAOImpl.getProject(1)).willThrow(taskException);
@@ -340,42 +341,42 @@ public class ProjectManagerServiceImplTest {
 		projectManagerService.updateTaskInfo(getTask());
 	}
 
-	private UserInfo getUser() throws JsonParseException, JsonMappingException, IOException {
+	private UserInfo getUser() throws JsonParseException, JsonMappingException, IOException, URISyntaxException {
 		TypeReference<UserInfo> mapObj = new TypeReference<UserInfo>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("user.json").getFile());
+		File file = new File(classLoader.getResource("user.json").toURI());
 		ObjectMapper mapper = new ObjectMapper();
 		UserInfo userInfo = mapper.readValue(file, mapObj);
 		return userInfo;
 	}
 
-	private TaskInfo getTask() throws JsonParseException, JsonMappingException, IOException {
+	private TaskInfo getTask() throws JsonParseException, JsonMappingException, IOException, URISyntaxException {
 		TypeReference<TaskInfo> mapObj = new TypeReference<TaskInfo>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("taskinfo.json").getFile());
+		File file = new File(classLoader.getResource("taskinfo.json").toURI());
 		ObjectMapper mapper = new ObjectMapper();
 		TaskInfo taskInfo = mapper.readValue(file, mapObj);
 		return taskInfo;
 	}
 
-	private ProjectInfo getProject() throws JsonParseException, JsonMappingException, IOException {
+	private ProjectInfo getProject() throws JsonParseException, JsonMappingException, IOException, URISyntaxException {
 		TypeReference<ProjectInfo> mapObj = new TypeReference<ProjectInfo>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("projectinfo.json").getFile());
+		File file = new File(classLoader.getResource("projectinfo.json").toURI());
 		ObjectMapper mapper = new ObjectMapper();
 		ProjectInfo projectInfo = mapper.readValue(file, mapObj);
 		return projectInfo;
 	}
 
 	@Test
-	public void updateParentTaskInfo_Valid() throws JsonParseException, JsonMappingException, IOException, TaskException {
+	public void updateParentTaskInfo_Valid() throws JsonParseException, JsonMappingException, IOException, TaskException, URISyntaxException {
 		TypeReference<TaskInfo> mapObj = new TypeReference<TaskInfo>() {
 		};
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("parenttaskinfo.json").getFile());
+		File file = new File(classLoader.getResource("parenttaskinfo.json").toURI());
 		ObjectMapper mapper = new ObjectMapper();
 		TaskInfo task = mapper.readValue(file, mapObj);
 		given(projectManagerDAOImpl.getProject(1)).willReturn(new Project());
